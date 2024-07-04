@@ -5,7 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +47,11 @@ public class BlogController {
         return blogService.getBlogById(id);
     }
 
+    @GetMapping("/users/{userId}")
+    public List<Blog> getBlogsByAuthorId(@PathVariable long userId){
+        return blogService.getBlogsByAuthorId(userId);
+    }
+    
     @PutMapping("/{id}")
     public Blog editBlog(@PathVariable long id, @RequestBody Blog blog){
         return blogService.editBlog(id, blog);

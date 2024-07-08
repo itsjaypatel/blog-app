@@ -37,5 +37,11 @@ public class UserServiceImpl implements UserService {
         }
         throw new ResourceNotFoundException("User not found with id: " + id);
     }
-    
+
+    @Override
+    public List<User> findTopKOldestUser(long k) {
+//        Pageable pageable = PageRequest.of(0,(int)k);
+        return repository.customQueryMethod((int) k);
+    }
+
 }

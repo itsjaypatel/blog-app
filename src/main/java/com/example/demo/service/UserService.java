@@ -11,4 +11,6 @@ public interface UserService {
     List<User> getAllUsers();
 
     User getUserById(long id);
+
+    List<User> findTopKOldestUser(long k);
 }
